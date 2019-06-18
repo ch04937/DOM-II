@@ -15,7 +15,23 @@ btnAlert = document.getElementsByClassName('btn')
 btnAlert[0].addEventListener('click', function (event) {
     alert('Fun In The Sun!');
   });
-
-
 // use event wheel
+//event #3
+let scale = 1;
+const logoHeading = document.querySelector('.logo-heading');
+logoHeading.onwheel = zoom;
 
+function zoom(event) {
+    event.preventDefault();
+    scale += event.deltaY * -0.01;
+    scale = Math.min(Math.max(.25, scale), 2.5);
+    logoHeading.style.transform = `scale(${scale})`;
+};
+
+// using doubleclink 
+//event #4 
+const card = document.querySelector('header nav');
+
+card.addEventListener('dblclick', function (e) {
+  card.classList.toggle('large');
+});
